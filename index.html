@@ -1,0 +1,68 @@
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Mynerve");
+  
+  body {
+    background-color: #370460;
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 30px;
+    word-wrap: anywhere;
+    font-family: "Mynerve"
+  }
+</style>
+
+<body>
+  <p>
+    click anywhere.
+  </p>
+</body>
+
+<script>
+  let click = 0
+  console.log(click)
+  const bad_phrases = ["why are you so annoying? ", "can't you just look at me? ", "why do you always talk about that? ", "you're so apathetic. ", "you're so sensitive. ", "you're so rude. ", "you're overreacting.", "you're underreacting. ", "why won't you speak to me? ", "can't you sit still? ", "you're so lazy. ", "you can't do anything right. ", "you're so picky. "] 
+  const good_phrases = ["i'm happy you're alive. ", "i love you. ", "your feelings are valid. ", "you're allowed to take breaks. ", "tell me more about what you love. ", "you're not alone. ", "you can always talk to me. ", "you're allowed personal space. ", "you're allowed to be you. ", "do what makes you most comfortable and happy. ", "i support you. "]
+  
+  window.onclick = () => 
+  {
+    if (click <= 50){
+    if (click === 0){
+      document.body.innerHTML = ""
+    }
+    click ++ 
+    console.log(click)
+    let indexRandom = Math.floor(Math.random() * 12)
+    
+    document.body.innerHTML += bad_phrases[indexRandom]
+    }
+    if (click === 51)
+      {
+        document.body.style.backgroundColor = "#31298a"
+        document.body.innerHTML = "don't click. breathe..."
+        setTimeout(() => 
+        {
+          click++
+          document.body.style.backgroundColor = "#f5c1d9"
+          document.body.style.color = "#000000"
+          document.body.innerHTML = "click anywhere :)"
+        }, 20000);
+      }
+    if (click >= 53 && click <= 100) {
+    if (click === 53)
+      {
+        document.body.innerHTML = ""
+      }
+      click ++
+      console.log(click)
+      let indexRandom = Math.floor(Math.random() * 10)
+      
+      document.body.innerHTML += good_phrases[indexRandom]
+    }
+    if (click === 101)
+      {
+        document.body.innerHTML = "fin. <3"
+      }
+  }
+  
+
+</script>
