@@ -19,8 +19,12 @@
 </body>
 
 <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+<script src="https://tonejs.github.io/build/Tone.js"></script>
 <script>
   /*global nn*/
+  /*global Tone*/
+  
+  const synth = new Tone.PluckSynth().toDestination()
   
   function createGif(x, y, w, h, url)
   {
@@ -70,6 +74,7 @@
     
     let newText = bad_phrases[indexRandom]
     placeRandom(newText)
+    synth.triggerAttack("C1")
     }
     if (click === 51)
       {
