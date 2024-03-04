@@ -18,6 +18,11 @@
     justify-content: center;
     align-items: center;
   }
+  
+  div {
+    display: flex;
+    align-content: center;
+  }
 </style>
 
 <body>
@@ -77,8 +82,8 @@
     if (click === 0){
       document.body.innerHTML = ""
     }
-    click ++ 
-    console.log(click) 
+    click ++
+    if (click === 1){
     const myPromise = new Promise(function(resolve)
     {
       for (let i = 0; i <= 100; i++)
@@ -93,19 +98,22 @@
             {
               resolve("Bad Phrases Done")
             }
-          }, Math.log(i) * 5000) 
+          }, Math.log(i) * 4000) 
         }
     })
     
     myPromise.then(function(resolve)
     {
+      document.body.innerHTML = ""
       console.log(resolve)
       const gifURL = 'https://cdn.dribbble.com/users/1318025/screenshots/6160103/media/c3365bf59a5738bba9cd3a5bae806849.gif'
         const x = nn.width / 2
         const y = nn.height / 2
         document.body.style.backgroundColor = "#31298a"
-        document.body.innerHTML = "don't click. breathe..."
-        createGif(x, y, 140, 140, gifURL)
+        const divNew = document.createElement('div')
+        divNew.innerHTML = "don't click. breathe..."
+        document.body.appendChild(divNew)
+        createGif(x, y, 500, 375, gifURL)
         setTimeout(() => 
         {
           click++
@@ -118,9 +126,10 @@
           document.body.appendChild(pNew)
         }, 20000);
       })
+      }
      }
-    if (click >= 2) {
-    if (click === 2)
+    if (click >= 3) {
+    if (click === 3)
       {
         document.body.innerHTML = ""
       }
