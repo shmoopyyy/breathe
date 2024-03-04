@@ -13,15 +13,17 @@
   
   p {
     height: 100vh;
-    position: 'absolute';
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  div {
+  h1 {
     display: flex;
-    align-content: center;
+    position: absolute;
+    left: 30%;
+    font-size: 30px;
+    align-items: center;
   }
 </style>
 
@@ -110,9 +112,9 @@
         const x = nn.width / 2
         const y = nn.height / 2
         document.body.style.backgroundColor = "#31298a"
-        const divNew = document.createElement('div')
-        divNew.innerHTML = "don't click. breathe..."
-        document.body.appendChild(divNew)
+        const h1New = document.createElement('h1')
+        h1New.innerHTML = "don't click. breathe..."
+        document.body.appendChild(h1New)
         createGif(x, y, 500, 375, gifURL)
         setTimeout(() => 
         {
