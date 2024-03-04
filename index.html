@@ -73,13 +73,15 @@
   
   window.onclick = () => 
   {
-    if (click <= 50){
+    if (click <= 1) {
     if (click === 0){
       document.body.innerHTML = ""
     }
     click ++ 
     console.log(click) 
-    for (let i = 0; i < 100; i++)
+    const myPromise = new Promise(function(resolve)
+    {
+      for (let i = 0; i <= 100; i++)
         {
           setTimeout(() =>
           {
@@ -87,14 +89,18 @@
             let text = bad_phrases[indexRandom]
             placeRandom(text)
             synth.triggerAttack("C1")
-          }, Math.log(i) * 5000)
-        
+            if (i === 100)
+            {
+              resolve("Bad Phrases Done")
+            }
+          }, Math.log(i) * 5000) 
         }
+    })
     
-    }
-    if (click === 51)
-      {
-        const gifURL = 'https://cdn.dribbble.com/users/1318025/screenshots/6160103/media/c3365bf59a5738bba9cd3a5bae806849.gif'
+    myPromise.then(function(resolve)
+    {
+      console.log(resolve)
+      const gifURL = 'https://cdn.dribbble.com/users/1318025/screenshots/6160103/media/c3365bf59a5738bba9cd3a5bae806849.gif'
         const x = nn.width / 2
         const y = nn.height / 2
         document.body.style.backgroundColor = "#31298a"
@@ -103,6 +109,7 @@
         setTimeout(() => 
         {
           click++
+          console.log(click)
           document.body.innerHTML = ""
           document.body.style.backgroundColor = "#f5c1d9"
           document.body.style.color = "#000000"
@@ -110,9 +117,10 @@
           pNew.innerHTML = "click anywhwere :)"
           document.body.appendChild(pNew)
         }, 20000);
-      }
-    if (click >= 53 && click <= 100) {
-    if (click === 53)
+      })
+     }
+    if (click >= 2) {
+    if (click === 2)
       {
         document.body.innerHTML = ""
       }
@@ -122,14 +130,13 @@
       
       document.body.innerHTML += good_phrases[indexRandom]
     }
-    if (click === 101)
+    if (click === 10)
       {
         document.body.innerHTML = ""
         const pEnd = document.createElement('p')
         pEnd.innerHTML = "fin <3"
         document.body.appendChild(pEnd)
       }
-  }
-  
-
+    }
+    
 </script>
