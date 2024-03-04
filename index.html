@@ -8,7 +8,15 @@
     line-height: 30px;
     word-wrap: anywhere;
     font-family: "Mynerve";
-    user-select: none
+    user-select: none;
+  }
+  
+  p {
+    height: 100vh;
+    position: 'absolute';
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
 
@@ -87,9 +95,12 @@
         setTimeout(() => 
         {
           click++
+          document.body.innerHTML = ""
           document.body.style.backgroundColor = "#f5c1d9"
           document.body.style.color = "#000000"
-          document.body.innerHTML = "click anywhere :)"
+          const pNew = document.createElement('p')
+          pNew.innerHTML = "click anywhwere :)"
+          document.body.appendChild(pNew)
         }, 20000);
       }
     if (click >= 53 && click <= 100) {
@@ -105,7 +116,10 @@
     }
     if (click === 101)
       {
-        document.body.innerHTML = "fin. <3"
+        document.body.innerHTML = ""
+        const pEnd = document.createElement('p')
+        pEnd.innerHTML = "fin <3"
+        document.body.appendChild(pEnd)
       }
   }
   
