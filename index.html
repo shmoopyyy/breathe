@@ -58,7 +58,7 @@
   function placeRandom(text)
   {
     let topRandom = Math.floor(Math.random() * (winH - 0) + 0)
-    let leftRandom = Math.floor(Math.random() * (winW - 0) + 0)
+    let leftRandom = Math.floor(Math.random() * (winW * 0.8))
     
     nn.create('div')
       .content(text)
@@ -70,6 +70,7 @@
       .addTo('body')
   }
   
+  
   window.onclick = () => 
   {
     if (click <= 50){
@@ -77,16 +78,23 @@
       document.body.innerHTML = ""
     }
     click ++ 
-    console.log(click)
-    let indexRandom = Math.floor(Math.random() * 12)
+    console.log(click) 
+    for (let i = 0; i < 100; i++)
+        {
+          setTimeout(() =>
+          {
+            let indexRandom = Math.floor(Math.random() * 12)
+            let text = bad_phrases[indexRandom]
+            placeRandom(text)
+            synth.triggerAttack("C1")
+          }, Math.log(i) * 5000)
+        
+        }
     
-    let newText = bad_phrases[indexRandom]
-    placeRandom(newText)
-    synth.triggerAttack("C1")
     }
     if (click === 51)
       {
-        const gifURL = 'https://dailyburn.com/life/wp-content/uploads/2016/04/new-person-gif.gif'
+        const gifURL = 'https://cdn.dribbble.com/users/1318025/screenshots/6160103/media/c3365bf59a5738bba9cd3a5bae806849.gif'
         const x = nn.width / 2
         const y = nn.height / 2
         document.body.style.backgroundColor = "#31298a"
