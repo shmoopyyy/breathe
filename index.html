@@ -40,6 +40,24 @@
   const bad_phrases = ["why are you so annoying? ", "can't you just look at me? ", "why do you always talk about that? ", "you're so apathetic. ", "you're so sensitive. ", "you're so rude. ", "you're overreacting.", "you're underreacting. ", "why won't you speak to me? ", "can't you sit still? ", "you're so lazy. ", "you can't do anything right. ", "you're so picky. "] 
   const good_phrases = ["i'm happy you're alive. ", "i love you. ", "your feelings are valid. ", "you're allowed to take breaks. ", "tell me more about what you love. ", "you're not alone. ", "you can always talk to me. ", "you're allowed personal space. ", "you're allowed to be you. ", "do what makes you most comfortable and happy. ", "i support you. "]
   
+  const winW = nn.width
+  const winH = nn.height
+  
+  function placeRandom(text)
+  {
+    let topRandom = Math.floor(Math.random() * (winH - 0) + 0)
+    let leftRandom = Math.floor(Math.random() * (winW - 0) + 0)
+    
+    nn.create('div')
+      .content(text)
+      .css({
+        position: 'absolute',
+        top: `${topRandom}px`,
+        left: `${leftRandom}px`
+      })
+      .addTo('body')
+  }
+  
   window.onclick = () => 
   {
     if (click <= 50){
@@ -50,7 +68,8 @@
     console.log(click)
     let indexRandom = Math.floor(Math.random() * 12)
     
-    document.body.innerHTML += bad_phrases[indexRandom]
+    let newText = bad_phrases[indexRandom]
+    placeRandom(newText)
     }
     if (click === 51)
       {
