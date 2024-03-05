@@ -138,17 +138,28 @@
       }
       click ++
       console.log(click)
-      let indexRandom = Math.floor(Math.random() * 10)
       
-      document.body.innerHTML += good_phrases[indexRandom]
-    }
-    if (click === 10)
+      let indexClick = (click - 3)
+      let goodText = good_phrases[indexClick]
+      nn.create('div')
+        .content(goodText)
+        .css({
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
+          height: '9vh'
+        })
+        .addTo('body')
+      
+      if (click === 14)
       {
         document.body.innerHTML = ""
         const pEnd = document.createElement('p')
         pEnd.innerHTML = "fin <3"
         document.body.appendChild(pEnd)
       }
+    }
     }
     
 </script>
