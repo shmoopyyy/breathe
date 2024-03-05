@@ -57,7 +57,7 @@
   let click = 0
   console.log(click)
   const bad_phrases = ["why are you so annoying? ", "can't you just look at me? ", "why do you always talk about that? ", "you're so apathetic. ", "you're so sensitive. ", "you're so rude. ", "you're overreacting.", "you're underreacting. ", "why won't you speak to me? ", "can't you sit still? ", "you're so lazy. ", "you can't do anything right. ", "you're so picky. "] 
-  const good_phrases = ["i'm happy you're alive. ", "i love you. ", "your feelings are valid. ", "you're allowed to take breaks. ", "tell me more about what you love. ", "you're not alone. ", "you can always talk to me. ", "you're allowed personal space. ", "you're allowed to be you. ", "do what makes you most comfortable and happy. ", "i support you. "]
+  const good_phrases = ["i'm happy you're alive.", "i love you.", "your feelings are valid.", "you're allowed to take breaks.", "tell me more about what you love.", "you're not alone.", "you can always talk to me.", "you're allowed personal space.", "you're allowed to be you.", "do what makes you most comfortable and happy.", "i support you."]
   
   const winW = nn.width
   const winH = nn.height
@@ -76,7 +76,7 @@
       })
       .addTo('body')
   }
-  
+  let badTextRunning = false
   
   window.onclick = () => 
   {
@@ -84,8 +84,9 @@
     if (click === 0){
       document.body.innerHTML = ""
     }
-    click ++
-    if (click === 1){
+    if (click < 1) {click ++}
+    if (click === 1 && badTextRunning === false){
+    badTextRunning = true
     const myPromise = new Promise(function(resolve)
     {
       for (let i = 0; i <= 100; i++)
@@ -130,8 +131,8 @@
       })
       }
      }
-    if (click >= 3) {
-    if (click === 3)
+    if (click >= 2) {
+    if (click === 2)
       {
         document.body.innerHTML = ""
       }
